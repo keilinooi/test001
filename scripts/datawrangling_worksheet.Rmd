@@ -41,7 +41,8 @@ from `Meral.Measured.` and `White.included.`
 
 ```{r edit column names}
 
-
+dat <- rename(dat, Meral.Measured = Meral.Measured. )
+dat <- rename(dat, White.included = White.included. )
 
 ```
 
@@ -67,8 +68,10 @@ this exercise, put `Browny/green` as `NA`.
 Also use `mutate` and `toupper` and `str_trim` to clean up `Meral.Measured`
 
 ```{r edit cells}
-
-
+dat2 <- dat %>%
+  mutate(case_when(
+    Colour == "Brown white dots" ~ "Brown"
+  ))
 
 
 # Let's Check
